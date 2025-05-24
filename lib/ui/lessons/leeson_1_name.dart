@@ -1,14 +1,15 @@
-// A simplified Flutter UI representation of Lesson 1: Say My Name
-// Uses basic widgets and simulated dialogue flow with learners Maria and Kenji
+// Gublygoop – Lesson 1: Power Verbs (Quiero, Necesito, Puedo)
+// Follows Michel-style: explain > peer repeat > correction > user repeat
+// Uses <YourName> as placeholder
 
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const GublygoopLesson());
+  runApp(const GublygoopLessonOne());
 }
 
-class GublygoopLesson extends StatelessWidget {
-  const GublygoopLesson({super.key});
+class GublygoopLessonOne extends StatelessWidget {
+  const GublygoopLessonOne({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,50 +21,81 @@ class GublygoopLesson extends StatelessWidget {
           title: const Text('Gublygoop – Lesson 1'),
           backgroundColor: Colors.deepPurple,
         ),
-        body: const LessonOneFlow(),
+        body: const LessonOnePowerVerbsFlow(),
       ),
     );
   }
 }
 
-class LessonOneFlow extends StatefulWidget {
-  const LessonOneFlow({super.key});
+class LessonOnePowerVerbsFlow extends StatefulWidget {
+  const LessonOnePowerVerbsFlow({super.key});
 
   @override
-  State<LessonOneFlow> createState() => _LessonOneFlowState();
+  State<LessonOnePowerVerbsFlow> createState() => _LessonOnePowerVerbsFlowState();
 }
 
-class _LessonOneFlowState extends State<LessonOneFlow> {
+class _LessonOnePowerVerbsFlowState extends State<LessonOnePowerVerbsFlow> {
   final List<String> dialogue = [
-    '👩‍🏫 Teacher: Welcome. Today we learn how to say your name in Spanish.',
-    '👩‍🏫 Teacher: In Spanish, we say "Me llamo..." — it means "I call myself."',
-    '👩‍🏫 Teacher: Say it now: Me llamo...',
-    '👩 Maria: Me llamo Maria.',
-    '👩‍🏫 Teacher: Well done Maria. Everyone say: Me llamo Maria.',
-    '👦 Kenji: Mi llamo Kenji?',
-    '👩‍🏫 Teacher: Not quite Kenji. Say: Me llamo Kenji.',
-    '👦 Kenji: Me llamo Kenji.',
-    '👩‍🏫 Teacher: Great. Now you — say: Me llamo Darius.',
-    '👩‍🏫 Teacher: To ask someone their name, say: ¿Cómo te llamas?',
-    '👩 Maria: ¿Cómo te llamas?',
-    '👩‍🏫 Teacher: Perfect Maria.',
-    '👦 Kenji: ¿Cómo tu llamas?',
-    '👩‍🏫 Teacher: Careful Kenji, it's "te llamas" — try again.',
-    '👦 Kenji: ¿Cómo te llamas?',
-    '👩‍🏫 Teacher: Now you — say: ¿Cómo te llamas?',
-    '👩‍🏫 Teacher: When someone replies, you say: Mucho gusto.',
-    '👩 Maria: ¡Mucho gusto!',
-    '👦 Kenji: ¡Mucho gusto!',
-    '👩‍🏫 Teacher: Your turn — say: ¡Mucho gusto!'
+    '👩‍🏫 Teacher: Welcome. Don’t memorize. Don’t repeat in your mind. Just listen, understand, and speak.',
+    '👩‍🏫 Teacher: First word: Quiero — it means "I want". Say it: Quiero.',
+    '👩 Maria: Quiero.',
+    '👦 Kenji: Kiero?',
+    '👩‍🏫 Teacher: Almost, Kenji — soft "eh": Quiero. Try again.',
+    '👦 Kenji: Quiero.',
+    '👩‍🏫 Teacher: Now you — say: Quiero.',
+    '👩‍🏫 Teacher: "To speak" is hablar. Combine: Quiero hablar.',
+    '👩 Maria: Quiero hablar.',
+    '👦 Kenji: Quiero ablar?',
+    '👩‍🏫 Teacher: Not ablar — it starts with soft "h": hablar. Say: Quiero hablar.',
+    '👦 Kenji: Quiero hablar.',
+    '👩‍🏫 Teacher: Now you — say: Quiero hablar.',
+    '👩‍🏫 Teacher: Next verb: Comer — to eat. Say: Quiero comer.',
+    '👩 Maria: Quiero comer.',
+    '👦 Kenji: Quiero comer.',
+    '👩‍🏫 Teacher: Now you — say: Quiero comer.',
+    '👩‍🏫 Teacher: Vivir — to live. Try: Quiero vivir.',
+    '👩 Maria: Quiero vivir.',
+    '👦 Kenji: Quiero vivir.',
+    '👩‍🏫 Teacher: Now you — say: Quiero vivir.',
+    '👩‍🏫 Teacher: New word: Necesito — it means "I need". Say it: Necesito.',
+    '👩 Maria: Necesito.',
+    '👦 Kenji: Nesito?',
+    '👩‍🏫 Teacher: Careful — it’s Ne-ce-si-to. Try again.',
+    '👦 Kenji: Necesito.',
+    '👩‍🏫 Teacher: Now you — say: Necesito.',
+    '👩‍🏫 Teacher: Combine: Necesito hablar.',
+    '👩 Maria: Necesito hablar.',
+    '👦 Kenji: Necesito hablar.',
+    '👩‍🏫 Teacher: Now you — say: Necesito hablar.',
+    '👩‍🏫 Teacher: Try: Necesito comer.',
+    '👩 Maria: Necesito comer.',
+    '👦 Kenji: Necesito comer.',
+    '👩‍🏫 Teacher: Now you — say: Necesito comer.',
+    '👩‍🏫 Teacher: Final power verb: Puedo — it means "I can." Say: Puedo.',
+    '👩 Maria: Puedo.',
+    '👦 Kenji: Puedo.',
+    '👩‍🏫 Teacher: Now you — say: Puedo.',
+    '👩‍🏫 Teacher: Say: Puedo hablar.',
+    '👩 Maria: Puedo hablar.',
+    '👦 Kenji: Puedo hablar.',
+    '👩‍🏫 Teacher: You — say: Puedo hablar.',
+    '👩‍🏫 Teacher: Puedo comer.',
+    '👩 Maria: Puedo comer.',
+    '👦 Kenji: Puedo comer.',
+    '👩‍🏫 Teacher: Your turn — say: Puedo comer.',
+    '👩‍🏫 Teacher: One final round. Say each of these clearly:',
+    '👩‍🏫 Teacher: 1. Quiero hablar',
+    '👩‍🏫 Teacher: 2. Quiero comer',
+    '👩‍🏫 Teacher: 3. Necesito vivir',
+    '👩‍🏫 Teacher: 4. Puedo hablar',
+    '👩‍🏫 Teacher: 5. Necesito comer'
   ];
 
   int currentIndex = 0;
 
   void nextLine() {
     setState(() {
-      if (currentIndex < dialogue.length - 1) {
-        currentIndex++;
-      }
+      if (currentIndex < dialogue.length - 1) currentIndex++;
     });
   }
 
