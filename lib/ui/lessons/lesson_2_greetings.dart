@@ -1,107 +1,119 @@
-// Gublygoop – Lesson 2: Greetings & How Are You? (with full reinforcement and corrections)
+// Gublygoop – Lesson 2: Transfer Words & Sentence Superpowers
+// Includes animation-ready hooks, humor, and dynamic learner connection
 
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const GublygoopLessonTwoReinforced());
-}
-
-class GublygoopLessonTwoReinforced extends StatelessWidget {
-  const GublygoopLessonTwoReinforced({super.key});
+class LessonTwoScreen extends StatefulWidget {
+  final String userName;
+  const LessonTwoScreen({required this.userName, super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          title: const Text('Gublygoop – Lesson 2'),
-          backgroundColor: Colors.teal,
-        ),
-        body: const LessonTwoReinforcedFlow(),
-      ),
-    );
-  }
+  State<LessonTwoScreen> createState() => _LessonTwoScreenState();
 }
 
-class LessonTwoReinforcedFlow extends StatefulWidget {
-  const LessonTwoReinforcedFlow({super.key});
-
-  @override
-  State<LessonTwoReinforcedFlow> createState() => _LessonTwoReinforcedFlowState();
-}
-
-class _LessonTwoReinforcedFlowState extends State<LessonTwoReinforcedFlow> {
-  final List<String> dialogue = [
-    '👩‍🏫 Teacher: Welcome back. Let's start by using what you already know.',
-    '👩‍🏫 Teacher: Say: Me llamo Darius.',
-    '👩‍🏫 Teacher: Say it again — clearly: Me llamo Darius.',
-    '👩‍🏫 Teacher: Now say: ¿Cómo te llamas?',
-    '👩‍🏫 Teacher: And say: ¡Mucho gusto!',
-    '👩‍🏫 Teacher: Now we begin the new lesson — greetings.',
-    '👩‍🏫 Teacher: To say "Hello", we say: Hola. Repeat: Hola.',
-    '👩 Maria: Hola.',
-    '👩‍🏫 Teacher: Nice, Maria. Everyone say: Hola.',
-    '👦 Kenji: Holla?',
-    '👩‍🏫 Teacher: Careful Kenji — not "Holla", it's: Hola. Try again.',
-    '👦 Kenji: Hola.',
-    '👩‍🏫 Teacher: Now you — say: Hola.',
-    '👩‍🏫 Teacher: Now ask: ¿Cómo estás?',
-    '👩 Maria: ¿Cómo estás?',
-    '👦 Kenji: ¿Cómo estas?',
-    '👩‍🏫 Teacher: Watch the accent Kenji — it's estás. One more time.',
-    '👦 Kenji: ¿Cómo estás?',
-    '👩‍🏫 Teacher: Now you — say: ¿Cómo estás?',
-    '👩‍🏫 Teacher: To say "I'm well": Estoy bien. Repeat: Estoy bien.',
-    '👩 Maria: Estoy bien.',
-    '👦 Kenji: Estoy bien.',
-    '👩‍🏫 Teacher: Now you — say: Estoy bien.',
-    '👩‍🏫 Teacher: To say "I'm not well": Estoy mal. Say it: Estoy mal.',
-    '👩 Maria: Estoy mal.',
-    '👦 Kenji: Estoy mal.',
-    '👩‍🏫 Teacher: Your turn — say: Estoy mal.',
-    '👩‍🏫 Teacher: To say "So-so": Más o menos. Repeat: Más o menos.',
-    '👩 Maria: Más o menos.',
-    '👦 Kenji: Mas o menos?',
-    '👩‍🏫 Teacher: Kenji, it's MÁS — stress on the first word. Try again.',
-    '👦 Kenji: Más o menos.',
-    '👩‍🏫 Teacher: Now you — say: Más o menos.',
-    '👩‍🏫 Teacher: Let's use it all together now. Say: Hola. Me llamo Darius. ¿Cómo estás? Estoy bien.',
-    '👩‍🏫 Teacher: Again — smoothly: Hola. Me llamo Darius. ¿Cómo estás? Estoy mal.',
-    '👩‍🏫 Teacher: One more with variation: Hola. Me llamo Darius. ¿Cómo estás? Más o menos.',
-    '👩‍🏫 Teacher: Excellent. You used both old and new phrases — like a real speaker.'
-  ];
-
+class _LessonTwoScreenState extends State<LessonTwoScreen> {
+  final List<String> dialogue = [];
   int currentIndex = 0;
 
-  void nextLine() {
+  @override
+  void initState() {
+    super.initState();
+    final name = widget.userName;
+    dialogue.addAll([
+      '👩‍🏫 Teacher: Welcome back, $name. Ready for your mind to be blown?',
+      '👩‍🏫 Teacher: You already know over **1,000 Spanish words** — no joke.',
+      '🧠 Fact: Words like "conversation", "attention", and "important" are nearly identical in Spanish.',
+      '💡 Rule: -tion becomes -ción, -ity becomes -idad, -ent becomes -ente. Easy, right?',
+      '🤹 Visual: conversation → conversación, flexible → flexible, possible → posible.',
+      '👩‍🏫 Teacher: Let's try it — say: problema.',
+      '👩 Maria: Problema.',
+      '👦 Kenji: Problemo?',
+      '👩‍🏫 Teacher: Not quite — it's **problema**. Try again.',
+      '👦 Kenji: Problema.',
+      '👩‍🏫 Teacher: You now — say: Problema.',
+      '👩‍🏫 Teacher: Combine it — "Tengo un problema" = I have a problem.',
+      '👩 Maria: Tengo un problema.',
+      '👦 Kenji: Tengo un problema.',
+      '👩‍🏫 Teacher: You — say: Tengo un problema.',
+      '👩‍🏫 Teacher: Now try: Importante — it means "important".',
+      '👩 Maria: Importante.',
+      '👦 Kenji: Importanta?',
+      '👩‍🏫 Teacher: Try again — say: Importante.',
+      '👦 Kenji: Importante.',
+      '👩‍🏫 Teacher: Your turn: Importante.',
+      '👩‍🏫 Teacher: Combine: "Es importante" = It's important.',
+      '👩 Maria: Es importante.',
+      '👦 Kenji: Es importante.',
+      '👩‍🏫 Teacher: You now — say: Es importante.',
+      '👩‍🏫 Teacher: Another one: Posible = Possible.',
+      '👩 Maria: Posible.',
+      '👦 Kenji: Posibla?',
+      '👩‍🏫 Teacher: One more time — Posible.',
+      '👦 Kenji: Posible.',
+      '👩‍🏫 Teacher: You now — say: Posible.',
+      '👩‍🏫 Teacher: Combine: "Es posible" = It's possible.',
+      '👩 Maria: Es posible.',
+      '👦 Kenji: Es posible.',
+      '👩‍🏫 Teacher: You — say: Es posible.',
+      '🎉 AI: $name, you've just spoken 3 full Spanish sentences with almost zero effort.',
+      '💥 Now let's go superhero mode — combine with what you know from Lesson 1...',
+      'Say: "Quiero una conversación."',
+      '👩 Maria: Quiero una conversación.',
+      '👦 Kenji: Quiero una conversación.',
+      '👩‍🏫 You — say: Quiero una conversación.',
+      'Now: "Necesito una decisión."',
+      '👩 Maria: Necesito una decisión.',
+      '👦 Kenji: Necesito una decisión.',
+      '👩‍🏫 You — say: Necesito una decisión.',
+      'Now: "Puedo tener una conversación."',
+      '👩 Maria: Puedo tener una conversación.',
+      '👦 Kenji: Puedo tener una conversación.',
+      '👩‍🏫 You — say: Puedo tener una conversación.',
+      '🧠 Reminder: This is called Transfer Power — you already knew this, Gublygoop just activated it.',
+      '🎭 Roleplay Time: You're at work. What do you say when things are confusing?',
+      'Option A: Tengo un problema.',
+      'Option B: Necesito una decisión.',
+      'Option C: Puedo tener una conversación.',
+      '✅ All answers are valid. You just held a conversation.',
+      '🎉 Final Flow — You speak:',
+      '1. Tengo un problema',
+      '2. Es importante',
+      '3. Es posible',
+      '4. Quiero una conversación',
+      '5. Necesito una decisión',
+      '6. Puedo hablar',
+      '🏁 Closing: $name, you just flexed with words you already knew. That’s power.'
+    ]);
+  }
+
+  void _nextLine() {
     setState(() {
-      if (currentIndex < dialogue.length - 1) {
-        currentIndex++;
-      }
+      if (currentIndex < dialogue.length - 1) currentIndex++;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(24.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            dialogue[currentIndex],
-            style: const TextStyle(fontSize: 22),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 30),
-          ElevatedButton(
-            onPressed: nextLine,
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.teal),
-            child: const Text('Next'),
-          ),
-        ],
+    return Scaffold(
+      backgroundColor: const Color(0xFFFDF9FF),
+      body: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              dialogue[currentIndex],
+              style: const TextStyle(fontSize: 22),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 30),
+            ElevatedButton(
+              onPressed: _nextLine,
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.deepPurple),
+              child: const Text('Next'),
+            ),
+          ],
+        ),
       ),
     );
   }
